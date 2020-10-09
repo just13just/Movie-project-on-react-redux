@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import MenuContainer from './elements/MenuContainer';
 import MainPageContainer from './elements/MainPageContainer';
+import FavoritesPageContainer from './elements/FavoritesPageContainer copy';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
             <MenuContainer />
             <MainPageContainer />
           </Route>
-          <Route>
-            
+          <Route exact path='/favorites'>
+            <MenuContainer />
+            <FavoritesPageContainer />
           </Route>
           <Route>
 
