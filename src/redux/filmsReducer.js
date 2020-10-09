@@ -1,25 +1,18 @@
 const SET_FILMS = "SET_FILMS";
 
 const initialState = {
-    films: [
-        {
-            original_title: 'Jurassic World',
-            release_date: "2015-06-12"
-        }
-    ]
+    films: []
 }
 
 const filmsReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case SET_FILMS:
-            {
-                return state
-            }
+            return { ...state, films: [...state.films, ...action.films] }
+
 
         default:
-            {
-                return state
-            }
+            return state
     }
 }
 
