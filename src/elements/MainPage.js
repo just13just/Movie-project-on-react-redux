@@ -15,7 +15,15 @@ const MainPage = (props) => {
             if (i < 12) {
                 return <div key={film.id} className="col-6 col-md-3 col-lg-2">
                     <div className='poster-wrap'>
-                        <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} alt='img...' />
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="img-wrap">
+                                   <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} className="img-responsive" />
+
+                                    <div className='poster-text'><div><strong>{film.original_title}</strong></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
