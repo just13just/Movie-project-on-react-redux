@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route>
+          <Route exact path='/'>
             <MenuContainer />
             <MainPageContainer />
           </Route>

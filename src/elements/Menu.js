@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
     return (
@@ -17,8 +18,8 @@ const Menu = () => {
                         My Account
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item item-dropdown" href="#">Main page</a>
-                        <a className="dropdown-item item-dropdown" href="#">Favorites</a>
+                        <Link className="dropdown-item item-dropdown" to="/">Main page</Link>
+                        <Link className="dropdown-item item-dropdown" to="/favorites">Favorites</Link>
                     </div>
                 </div>
             </div>
