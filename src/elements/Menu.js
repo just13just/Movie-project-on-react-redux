@@ -15,7 +15,7 @@ const Menu = () => {
             <div className='right-side-menu'>
                 <div className="dropdown">
                     <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My Account
+                        <span className='dropDownButton'> My Account </span> 
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <Link className="dropdown-item item-dropdown" to="/">Main page</Link>
