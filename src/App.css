@@ -25,7 +25,7 @@
 
 .main-page-wrap {
   background-color: rgb(242, 243, 245);
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   padding: 20px;
 }
 .main-page {
@@ -91,12 +91,15 @@
   margin: 2em;
 }
 .pagination {
-  border-style: solid;
   padding: 1em;
 }
 .pagination li a:link{
  padding: 1em;
  text-decoration: none;
+ border: solid 1px;
+}
+.linkClass {
+  color: rgb(72, 77, 88);
 }
 .active-pagination {
   color: rgb(99, 179, 152);
