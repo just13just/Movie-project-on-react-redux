@@ -87,9 +87,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
-  background-color: rgb(45, 152, 160);
+
+  margin: 2em;
 }
+.pagination {
+  border-style: solid;
+  padding: 1em;
+}
+.pagination li a:link{
+ padding: 1em;
+ text-decoration: none;
+}
+.active-pagination {
+  color: rgb(99, 179, 152);
+}
+
 
 
 

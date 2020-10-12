@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Pagination from 'react-js-pagination'
 
 
 const MainPage = (props) => {
 
-    useEffect(() => {
-        if (props.films.length === 0) {
-            fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=4`)
-                .then(res => res.json())
-                .then(res => props.setFilms(res.results))
-                .catch(err => console.error(err))
-        }
-    }, [])
+    const [pageNum, setPageNum] = useState(null);
+    const [totalCount, setTotalCount] = useState(null)
 
-    // for pagination
-    // &page=4
+    useEffect(() => {
+        fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${pageNum}`)
+            .then(res => res.json())
+            .then(res => {
+                props.setFilms(res.results)
+                setPageNum(res.page)
+                setTotalCount(res.total_results)
+            })
+            .catch(err => console.error(err))
+    }, [pageNum])
 
     const postersList = props.films
         .map(film => {
@@ -37,7 +40,19 @@ const MainPage = (props) => {
                     {postersList}
                 </div>
                 <div className='main-footer'>
-                    <h3>pagination</h3>
+                    <Pagination
+                        activePage={pageNum}
+                        itemsCountPerPage={20}
+                        totalItemsCount={totalCount}
+                        pageRangeDisplayed={3}
+                        onChange={setPageNum}
+                        prevPageText={'Prev'}
+                        nextPageText={'Next'}
+                        firstPageText={'First'}
+                        lastPageText={'Last'}
+                        hideDisabled={true}
+                        activeLinkClass={'active-pagination'}
+                    />
                 </div>
             </div>
         </div>
