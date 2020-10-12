@@ -19,6 +19,9 @@
   margin: 20px;
   margin-right: 40px;
 }
+.menu-dropdown-btn {
+  background-color: rgb(72, 77, 88)
+}
 
 .main-page-wrap {
   background-color: rgb(242, 243, 245);
