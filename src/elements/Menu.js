@@ -6,8 +6,10 @@ const Menu = () => {
         <div className='menu'>
             <div className='left-side-menu'>
                 <div className='menu-circle'>
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-reels-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 8a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8z" />
+                        <circle cx="3" cy="3" r="3" />
+                        <circle cx="9" cy="3" r="3" />
                     </svg>
                 </div>
                 <div className='movies'><h3>Movies</h3></div>
@@ -15,7 +17,7 @@ const Menu = () => {
             <div className='right-side-menu'>
                 <div className="dropdown">
                     <button className="btn btn-secondary dropdown-toggle menu-dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span className='dropDownButton'> My Account </span> 
+                        <span className='dropDownButton'> My Account </span>
                     </button>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <Link className="dropdown-item item-dropdown" to="/">Main page</Link>
