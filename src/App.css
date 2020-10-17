@@ -163,7 +163,7 @@
   color: white;
 }
 .modal-page-svg {
-  margin-right: 1em;
+  margin: 0 1em;
 }
 .modal-page-content-container {
   display: grid;
