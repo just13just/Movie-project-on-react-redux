@@ -11,7 +11,6 @@ const ModalPage = (props) => {
                 width: '100%',
                 backgroundSize: "cover",
                 backgroundPosition: 'center',
-                // filter: 'blur(1px)'
                 backgroundColor: 'rgb(0, 0, 0, 0.7)'
             }}
         >
