@@ -33,13 +33,12 @@ const MainPage = (props) => {
 
     console.log(props.films)
 
-    if (modalFilmNum) {
+    if (modalFilmNum !== null) {
         return (
             <ModalPage
                 modalFilmNum={modalFilmNum}
                 setModalFilmNum={setModalFilmNum}
                 modalArr={modalArr}
-                setModalArr={setModalArr}
             />
         )
     }
