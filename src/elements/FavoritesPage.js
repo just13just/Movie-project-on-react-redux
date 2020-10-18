@@ -1,8 +1,8 @@
 import React from 'react';
 
 const FavoritesPage = (props) => {
-
-    const postersList = props.films
+    console.log(props)
+    const filmsList = props.favoritesFilms
         .map(film => {
             return <div key={film.id} className='favorites-grid-container'>
                 <div className='favorites-img-container'>
@@ -27,7 +27,7 @@ const FavoritesPage = (props) => {
             <div className='favorite-head'>
                 <h3>My favorite</h3>
             </div>
-            {postersList}
+            {filmsList}
         </div>
     </div>
 }

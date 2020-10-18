@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { setFilmsAC } from '../redux/filmsReducer';
+import { setFavoritesFilmsAC } from '../redux/favoritesReducer';
 import FavoritesPage from './FavoritesPage';
 
 const mapStateToProps = (state) => {
     return {
-        films: state.mainData.films
+        favoritesFilms: state.favoritesData.favoritesFilms
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        setFilms: (films) => {
-            dispatch(setFilmsAC(films))
+        setFavoritesFilms: (favoritesFilms) => {
+            dispatch(setFavoritesFilmsAC(favoritesFilms))
         }
     }
 }
