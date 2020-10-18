@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { addToFavorites, removeFromFavorites } from './FavoritesPage';
 
 
 const ModalPage = (props) => {
+
+    const [toggle, setToggle] = useState(false)
 
     return (
         <div
@@ -39,7 +42,10 @@ const ModalPage = (props) => {
                 <div className='modal-page-content-container'>
                     <img src={`http://image.tmdb.org/t/p/w342/${props.modalArr[props.modalFilmNum].poster_path}`} alt='img...' className='' />
                     <div className='modal-page-content-text'>
-                        <button className='btn btn-outline-secondary' type='button' >Add to favorite</button>
+                        {JSON.parse(localStorage.getItem('favoritesFilmsArr'))
+                            .find(film => film.id === props.modalArr[props.modalFilmNum].id) ?
+                            <button className='btn btn-outline-secondary' type='button' onClick={() => { removeFromFavorites(props.modalArr[props.modalFilmNum].id); setToggle(!toggle) }}>Unfavorite</button> :
+                            <button className='btn btn-outline-secondary' type='button' onClick={() => { addToFavorites(props.modalArr[props.modalFilmNum]); setToggle(!toggle) }}>Add to favorite</button>}
                         <div>
                             <h2>{`${props.modalArr[props.modalFilmNum].original_title} (${parseInt(props.modalArr[props.modalFilmNum].release_date)})`}</h2>
                         </div>
