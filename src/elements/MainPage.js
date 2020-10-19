@@ -64,9 +64,6 @@ const MainPage = (props) => {
                             firstPageText={'First'}
                             lastPageText={'Last'}
                             hideDisabled={true}
-                            activeLinkClass={'active-pagination'}
-                            itemClassFirst={'itemClassFirst'}
-                            itemClassLast={'itemClassLast'}
                             itemClass="page-item"
                             linkClass="page-link"
                         />

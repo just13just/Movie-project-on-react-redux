@@ -93,10 +93,25 @@
 
   margin: 2em 0;
 }
-.pagination li a:link{
+.pagination li a{
  padding: 1em;
+ color: rgb(171, 174, 172);
+ font-weight: bold;
 }
-.active-pagination {
+.pagination li a:hover {
+  color: rgb(171, 174, 172);
+}
+.page-link:focus {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.24);
+  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.24);
+}
+.page-item.active .page-link {
+  background-color: inherit;
+  border-color: rgb(223, 226, 230);
+  color: rgb(99, 179, 152);
+}
+.page-item:first-child .page-link, .page-item:last-child .page-link  {
   color: rgb(99, 179, 152);
 }
 
