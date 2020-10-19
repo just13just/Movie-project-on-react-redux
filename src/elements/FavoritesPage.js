@@ -3,7 +3,11 @@ import ModalPage from './ModalPage';
 
 const FavoritesPage = () => {
 
-    const favoritesFilms = JSON.parse(localStorage.getItem('favoritesFilmsArr'))
+    let favoritesFilms = [];
+    localStorage.getItem('favoritesFilmsArr') ?
+        favoritesFilms = JSON.parse(localStorage.getItem('favoritesFilmsArr')) :
+        favoritesFilms = [];
+        
     const [toggle, setToggle] = useState(false)
     const [modalFilmNum, setModalFilmNum] = useState(null);
 
