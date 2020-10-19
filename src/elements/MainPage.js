@@ -7,8 +7,8 @@ const MainPage = (props) => {
 
     const [pageNum, setPageNum] = useState(null);
     const [totalCount, setTotalCount] = useState(1)
-    const [modalArr, setModalArr] = useState([]);
     const [modalFilmNum, setModalFilmNum] = useState(null);
+    const modalArr = props.films;
 
     useEffect(() => {
         fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${pageNum}`)
@@ -23,7 +23,7 @@ const MainPage = (props) => {
 
     const postersList = props.films
         .map((film, index) => {
-            return <div key={film.id} onClick={() => { setModalArr(props.films); setModalFilmNum(index) }} className='poster-wrap'>
+            return <div key={film.id} onClick={() => { setModalFilmNum(index) }} className='poster-wrap'>
                 <div className='img-wrap'>
                     <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} alt='img...' className='' />
                     <div className='poster-text'><div><strong>{film.original_title}</strong></div></div>

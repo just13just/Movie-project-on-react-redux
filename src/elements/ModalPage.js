@@ -28,7 +28,7 @@ const ModalPage = (props) => {
                         </strong>
                             Back to list
                         </div>
-                    {props.modalFilmNum < 19 ?
+                    {props.modalFilmNum < props.modalArr.length -1 ?
                         <div className='modal-btn' onClick={() => props.setModalFilmNum(props.modalFilmNum + 1)}>
                             Next movie
                             <strong className='modal-page-svg'>

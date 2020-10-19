@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import ModalPage from './ModalPage';
 
 const FavoritesPage = () => {
 
     const favoritesFilms = JSON.parse(localStorage.getItem('favoritesFilmsArr'))
     const [toggle, setToggle] = useState(false)
+    const [modalFilmNum, setModalFilmNum] = useState(null);
 
     const filmsList = favoritesFilms
-        .map(film => {
+        .map((film, index) => {
             return <div key={film.id} className='favorites-grid-container'>
-                <div className='favorites-img-container'>
+                <div className='favorites-img-container' onClick={() => { setModalFilmNum(index) }}>
                     <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} alt='img...' className='' />
                 </div>
                 <div className='favorites-content-container'>
@@ -24,15 +26,25 @@ const FavoritesPage = () => {
         })
 
 
-
-    return <div className='favorites-page-wrap'>
-        <div className='favorite-page'>
-            <div className='favorite-head'>
-                <h3>My favorite</h3>
+    if (modalFilmNum !== null) {
+        return (
+            <ModalPage
+                modalFilmNum={modalFilmNum}
+                setModalFilmNum={setModalFilmNum}
+                modalArr={favoritesFilms}
+            />
+        )
+    }
+    else {
+        return <div className='favorites-page-wrap'>
+            <div className='favorite-page'>
+                <div className='favorite-head'>
+                    <h3>My favorite</h3>
+                </div>
+                {filmsList}
             </div>
-            {filmsList}
         </div>
-    </div>
+    }
 }
 
 export const addToFavorites = (film) => {
