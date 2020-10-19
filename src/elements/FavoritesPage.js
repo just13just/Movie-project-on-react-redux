@@ -15,8 +15,8 @@ const FavoritesPage = () => {
                 </div>
                 <div className='favorites-content-container'>
                     <div className='favorites-text-container'>
-                        <h3><strong>{film.original_title}</strong></h3>
-                        <button type="button" className="btn btn-outline-secondary" onClick={() => { removeFromFavorites(film.id); setToggle(!toggle) }}><strong>Unfavorite</strong></button>
+                        <h6><strong>{film.original_title}</strong></h6>
+                        <button type="button" className="btn btn-outline-secondary btn-favorite-unfavorite" onClick={() => { removeFromFavorites(film.id); setToggle(!toggle) }}><strong>Unfavorite</strong></button>
                     </div>
                     <div className='favorites-overview-wrap'>
                         <div className='favorites-overview'>{film.overview}</div>

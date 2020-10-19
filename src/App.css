@@ -36,7 +36,7 @@
 }
 .main-head, .favorite-head{
   padding: 0 1em;
-  color: rgb(72, 77, 88);
+  color: rgb(145, 142, 146);
 }
 
 .main-content {
@@ -126,7 +126,7 @@
 }
 .favorites-img-container img {
   max-width: 100%;
-  min-width: 190px;
+  min-width: 150px;
 }
 .favorites-img-container:hover {
   -webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,1);
@@ -134,7 +134,7 @@
   box-shadow: 0px 0px 24px 0px rgba(0,0,0,1);
 }
 .favorites-content-container{
-  margin: 1em;
+  margin: 0.5em 1em;
 }
 .favorites-text-container {
   display: flex;
@@ -142,7 +142,6 @@
   margin-bottom: 2em;
 }
 .favorites-text-container h3 {
-  margin-right: 1em;
   overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -153,7 +152,7 @@
   overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 6;
+	-webkit-line-clamp: 7;
 	-webkit-box-orient: vertical;
 }
 
@@ -217,13 +216,16 @@
   .main-content {
     grid-template-columns: repeat(4, 1fr);
   }
+  .favorites-grid-container {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 @media only screen and (max-width: 600px) {
   .dropDownButton {
     display: none;
   }
   .main-page-wrap {
-    padding: 0.5em;
+    padding: 20px 0.5em;
   }
   .pagination li a:link{
    padding: 0.5em;
@@ -235,16 +237,25 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .favorites-grid-container {
+    grid-template-columns: 1.5fr 1fr;
+  }
   .favorite-head{
-    padding: .5em;
+    padding: 0 .2em;
   }
   .favorites-img-container {
-    margin: 0.5em;
+    margin: 0.5em 0; 
+  }
+  .favorites-content-container {
+    margin-right: 0;
+  }
+  .btn-favorite-unfavorite {
+    padding: 2px;
   }
   .favorites-text-container {
     display: initial;
   }
-  .favorites-text-container h3, button {
-    margin-bottom: 15px;
+  .favorites-text-container h5, button {
+    margin-bottom: 10px;
   }
 }
