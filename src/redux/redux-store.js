@@ -1,11 +1,9 @@
 import { combineReducers, createStore } from 'redux';
-import favoritesReducer from './favoritesReducer';
 import filmsReducer from './filmsReducer';
 
 
 const reducers = combineReducers({
-    mainData: filmsReducer,
-    favoritesData: favoritesReducer
+    mainData: filmsReducer
 })
 
 const store = createStore(reducers)
