@@ -1,3 +1,6 @@
+.App {
+  min-width: 320px;
+}
 .menu {
   background-color: rgb(72, 77, 88);
   height: 80px;
@@ -41,7 +44,6 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1em;
   padding: 1em;
-  min-width: 320px;
 }
 .poster-wrap {
   -webkit-box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 1);
@@ -89,18 +91,10 @@
   justify-content: center;
   align-items: center;
 
-  margin: 2em;
-}
-.pagination {
-  padding: 1em;
+  margin: 2em 0;
 }
 .pagination li a:link{
  padding: 1em;
- text-decoration: none;
- border: solid 1px;
-}
-.linkClass {
-  color: rgb(72, 77, 88);
 }
 .active-pagination {
   color: rgb(99, 179, 152);
@@ -215,6 +209,9 @@
   }
   .main-page-wrap {
     padding: 0.5em;
+  }
+  .pagination li a:link{
+   padding: 0.5em;
   }
   .img-wrap .poster-text div {
     font-size: 1rem

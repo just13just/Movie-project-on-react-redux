@@ -67,7 +67,8 @@ const MainPage = (props) => {
                             activeLinkClass={'active-pagination'}
                             itemClassFirst={'itemClassFirst'}
                             itemClassLast={'itemClassLast'}
-                            linkClass={'linkClass'}
+                            itemClass="page-item"
+                            linkClass="page-link"
                         />
                     </div>
                 </div>
