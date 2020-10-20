@@ -100,6 +100,14 @@ const ModalPage = (props) => {
                             <hr />
                         </div>
                     </div>
+                    <div className='modal-page-grid-box-sm'>
+                        <div>
+                            <h2>{`${props.modalArr[props.modalFilmNum].original_title} (${parseInt(props.modalArr[props.modalFilmNum].release_date)})`}</h2>
+                        </div>
+                        <hr />
+                        <p>{props.modalArr[props.modalFilmNum].overview}</p>
+                        <hr />
+                    </div>
                 </div>
             </div>
         </div>
