@@ -5,23 +5,24 @@ import ModalPage from './ModalPage';
 
 const MainPage = (props) => {
 
+    const {films, setFilms} = props;
+    const modalArr = films;
     const [pageNum, setPageNum] = useState(null);
     const [totalCount, setTotalCount] = useState(1)
     const [modalFilmNum, setModalFilmNum] = useState(null);
-    const modalArr = props.films;
 
     useEffect(() => {
         fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${pageNum}`)
             .then(res => res.json())
             .then(res => {
-                props.setFilms(res.results)
+                setFilms(res.results)
                 setPageNum(res.page)
                 setTotalCount(res.total_results)
             })
             .catch(err => console.error(err))
-    }, [pageNum])
+    }, [pageNum, setFilms])
 
-    const postersList = props.films
+    const postersList = films
         .map((film, index) => {
             return <div key={film.id} onClick={() => { setModalFilmNum(index) }} className='poster-wrap'>
                 <div className='img-wrap'>
@@ -30,8 +31,6 @@ const MainPage = (props) => {
                 </div>
             </div>
         })
-
-    console.log(props.films)
 
     if (modalFilmNum !== null) {
         return (
