@@ -181,7 +181,7 @@
 .modal-page-content-container {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  padding: 2em;
+  padding: 2em 4em;
   color: white;
 }
 .modal-page-content-container img {
@@ -190,6 +190,7 @@
 }
 .modal-page-content-text {
   padding: 1em;
+  margin-left: 2em;
 }
 .modal-page-content-text hr {
   background-color: white;
@@ -207,6 +208,9 @@
 .modal-page-score-rating {
   border-right: 1px solid white;
 }
+.modal-btn-sm {
+  display: none;
+}
 
 
 
@@ -218,6 +222,12 @@
   }
   .favorites-grid-container {
     grid-template-columns: 1fr 2fr;
+  }
+  .modal-btn-lg {
+    display: none;
+  }  
+  .modal-btn-sm {
+    display: initial;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -257,5 +267,16 @@
   }
   .favorites-text-container h5, button {
     margin-bottom: 10px;
+  }
+
+
+  .modal-btn-lg {
+    display: none;
+  } 
+  .modal-btn-sm {
+    display: initial;
+  }
+  .modal-page-container {
+  padding: 0;
   }
 }
