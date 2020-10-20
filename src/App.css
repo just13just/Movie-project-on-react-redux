@@ -186,7 +186,7 @@
 }
 .modal-page-content-container img {
   max-width: 100%; 
-  min-width: 200px;
+  min-width: 130px;
 }
 .modal-page-content-text {
   padding: 1em;
@@ -211,6 +211,11 @@
 .modal-btn-sm {
   display: none;
 }
+.modal-page-favorite-btn-sm {
+  display: none;
+  color: white;
+  font-size: 20px;
+}
 
 
 
@@ -228,6 +233,12 @@
   }  
   .modal-btn-sm {
     display: initial;
+  }
+  .modal-page-container {
+    padding: 1em;
+  }
+  .modal-page-content-container {
+    padding: 2em 1em;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -278,5 +289,29 @@
   }
   .modal-page-container {
   padding: 0;
+  }
+  .modal-page-text-lg, .modal-page-title-lg {
+    display: none;
+  }
+  .modal-page-content-text-first-row {
+    display: initial;
+  }
+  .modal-page-content-text {
+    padding-top: 0;
+  }
+  .modal-page-score-rating {
+    border: none;
+  }
+  .modal-page-content-container {
+    padding: 1em 0.5em;
+  }
+  .modal-page-content-text {
+    margin: 0;
+  }
+  .modal-page-favorite-btn-lg {
+    display: none;
+  }
+  .modal-page-favorite-btn-sm {
+    display: initial;
   }
 }
