@@ -105,7 +105,9 @@ const ModalPage = (props) => {
                             <h2>{`${props.modalArr[props.modalFilmNum].original_title} (${parseInt(props.modalArr[props.modalFilmNum].release_date)})`}</h2>
                         </div>
                         <hr />
-                        <p>{props.modalArr[props.modalFilmNum].overview}</p>
+                        <div className='modal-page-sm-overview'>
+                            <p>{props.modalArr[props.modalFilmNum].overview}</p>
+                        </div>
                         <hr />
                     </div>
                 </div>
