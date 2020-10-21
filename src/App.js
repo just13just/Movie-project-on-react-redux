@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
@@ -12,17 +12,30 @@ import FavoritesPage from './elements/FavoritesPage';
 import Menu from './elements/Menu';
 
 function App() {
+
+  const [modalFilmNum, setModalFilmNum] = useState(null);
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path='/'>
-            <Menu />
-            <MainPageContainer />
+            <div className={modalFilmNum !== null ? `main-menu` : ``}>
+              <Menu />
+            </div>
+            <MainPageContainer
+              modalFilmNum={modalFilmNum}
+              setModalFilmNum={setModalFilmNum}
+            />
           </Route>
           <Route exact path='/favorites'>
-            <Menu />
-            <FavoritesPage />
+            <div className={modalFilmNum !== null ? `main-menu` : ``}>
+              <Menu />
+            </div>
+            <FavoritesPage
+              modalFilmNum={modalFilmNum}
+              setModalFilmNum={setModalFilmNum}
+            />
           </Route>
         </Switch>
       </Router>

@@ -5,11 +5,10 @@ import ModalPage from './ModalPage';
 
 const MainPage = (props) => {
 
-    const {films, setFilms} = props;
+    const { films, setFilms, modalFilmNum, setModalFilmNum } = props;
     const modalArr = films;
     const [pageNum, setPageNum] = useState(null);
     const [totalCount, setTotalCount] = useState(1)
-    const [modalFilmNum, setModalFilmNum] = useState(null);
 
     useEffect(() => {
         fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${pageNum}`)

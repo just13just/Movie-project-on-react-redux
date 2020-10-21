@@ -157,7 +157,9 @@
 }
 
 
-
+.modal-page-background {
+  height: calc(100vh - 80px);
+}
 .modal-page-container {
   background-color: rgb(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
@@ -290,7 +292,10 @@
   }
 
 
-  .modal-btn-lg {
+  .modal-page-background {
+    height: 100vh;
+  }
+  .modal-btn-lg, .main-menu{
     display: none;
   } 
   .modal-btn-sm {

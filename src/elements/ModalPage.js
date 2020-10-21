@@ -8,9 +8,9 @@ const ModalPage = (props) => {
 
     return (
         <div
+            className='modal-page-background'
             style={{
                 backgroundImage: `url(http://image.tmdb.org/t/p/original/${props.modalArr[props.modalFilmNum].poster_path})`,
-                height: 'calc(100vh - 80px)',
                 width: '100%',
                 backgroundSize: "cover",
                 backgroundPosition: 'center',

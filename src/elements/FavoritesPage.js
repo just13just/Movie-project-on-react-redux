@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import ModalPage from './ModalPage';
 
-const FavoritesPage = () => {
+const FavoritesPage = (props) => {
 
+    const { modalFilmNum, setModalFilmNum } = props;
     let favoritesFilms = [];
     localStorage.getItem('favoritesFilmsArr') ?
         favoritesFilms = JSON.parse(localStorage.getItem('favoritesFilmsArr')) :
         favoritesFilms = [];
-        
+
     const [toggle, setToggle] = useState(false)
-    const [modalFilmNum, setModalFilmNum] = useState(null);
 
     const filmsList = favoritesFilms
         .map((film, index) => {
