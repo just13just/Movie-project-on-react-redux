@@ -204,6 +204,9 @@
   display: flex;
   flex-direction: row;
 }
+.modal-page-content-text-first-row br {
+  display: none;
+}
 .modal-page-content-text-first-row div {
   padding: 5px;
 }
@@ -298,6 +301,9 @@
   .modal-btn-lg, .main-menu{
     display: none;
   } 
+  .modal-page-btn-row {
+    padding: .5em 0;
+  }
   .modal-btn-sm {
     display: initial;
   }
@@ -310,6 +316,9 @@
   .modal-page-content-text-first-row {
     display: initial;
   }
+  .modal-page-content-text-first-row br {
+    display: initial;
+  }
   .modal-page-content-text {
     padding-top: 0;
   }
@@ -317,7 +326,7 @@
     border: none;
   }
   .modal-page-content-container {
-    padding: 1em 0.5em;
+    padding: 1em;
   }
   .modal-page-content-text {
     margin: 0;

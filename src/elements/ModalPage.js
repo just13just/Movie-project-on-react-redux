@@ -85,13 +85,13 @@ const ModalPage = (props) => {
                         </div>
                         <div className='modal-page-content-text-first-row'>
                             <div className='modal-page-score-rating'>
-                                Score: {props.modalArr[props.modalFilmNum].vote_average}
+                                Score: <br /><strong>{props.modalArr[props.modalFilmNum].vote_average}</strong>
                             </div>
                             <div className='modal-page-score-rating'>
-                                Rating: {props.modalArr[props.modalFilmNum].adult ? 'R' : 'Pg'}
+                                Rating: <br /><strong>{props.modalArr[props.modalFilmNum].adult ? 'R' : 'Pg'}</strong>
                             </div>
-                            <div >
-                                Release Date: {props.modalArr[props.modalFilmNum].release_date}
+                            <div>
+                                Release Date: <br /><strong>{props.modalArr[props.modalFilmNum].release_date}</strong>
                             </div>
                         </div>
                         <div className='modal-page-text-lg'>
