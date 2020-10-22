@@ -33,7 +33,7 @@ const FavoritesPage = (props) => {
             <div className='favorites-page-wrap'>
                 <div className='favorite-page'>
                     <div className='favorite-head'>
-                        <h3>My favorite</h3>
+                        <h3>My favorite {favoritesFilms.length === 0 ? <span>list is empty</span> : null}</h3>
                     </div>
                     {filmsList}
                 </div>
