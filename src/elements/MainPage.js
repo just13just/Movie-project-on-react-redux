@@ -25,7 +25,7 @@ const MainPage = (props) => {
         return (() => {
             setModalFilmNum(null);
             console.log('main page was closed')
-        })    
+        })
     }, [setModalFilmNum])
 
     const postersList = films
@@ -38,16 +38,7 @@ const MainPage = (props) => {
             </div>
         })
 
-    if (modalFilmNum !== null) {
-        return (
-            <ModalPage
-                modalFilmNum={modalFilmNum}
-                setModalFilmNum={setModalFilmNum}
-                modalArr={modalArr}
-            />
-        )
-    }
-    else {
+    if (modalFilmNum === null) {
         return (
             <div className='main-page-wrap'>
                 <div className='main-page'>
@@ -75,6 +66,15 @@ const MainPage = (props) => {
                     </div>
                 </div>
             </div>
+        )
+    }
+    else {
+        return (
+            <ModalPage
+                modalFilmNum={modalFilmNum}
+                setModalFilmNum={setModalFilmNum}
+                modalArr={modalArr}
+            />
         )
     }
 }

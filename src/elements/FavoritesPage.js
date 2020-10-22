@@ -37,7 +37,19 @@ const FavoritesPage = (props) => {
         })
 
 
-    if (modalFilmNum !== null) {
+    if (modalFilmNum === null) {
+        return (
+            <div className='favorites-page-wrap'>
+                <div className='favorite-page'>
+                    <div className='favorite-head'>
+                        <h3>My favorite</h3>
+                    </div>
+                    {filmsList}
+                </div>
+            </div>
+        )
+    }
+    else {
         console.log(modalFilmNum)
         return (
             <ModalPage
@@ -46,16 +58,6 @@ const FavoritesPage = (props) => {
                 modalArr={favoritesFilms}
             />
         )
-    }
-    else {
-        return <div className='favorites-page-wrap'>
-            <div className='favorite-page'>
-                <div className='favorite-head'>
-                    <h3>My favorite</h3>
-                </div>
-                {filmsList}
-            </div>
-        </div>
     }
 }
 
