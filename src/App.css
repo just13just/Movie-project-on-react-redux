@@ -17,6 +17,7 @@
 .left-side-menu {
   margin-left: 40px;
   display: flex;
+  color: rgb(242, 243, 245);
 }
 .right-side-menu {
   margin: 20px;
