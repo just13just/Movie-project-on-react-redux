@@ -14,6 +14,7 @@ import Menu from './elements/Menu';
 function App() {
 
   const [modalFilmNum, setModalFilmNum] = useState(null);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className="App">
@@ -28,6 +29,8 @@ function App() {
             <MainPageContainer
               modalFilmNum={modalFilmNum}
               setModalFilmNum={setModalFilmNum}
+              toggle={toggle}
+              setToggle={setToggle}
             />
           </Route>
           <Route exact path='/favorites'>
@@ -39,6 +42,8 @@ function App() {
             <FavoritesPage
               modalFilmNum={modalFilmNum}
               setModalFilmNum={setModalFilmNum}
+              toggle={toggle}
+              setToggle={setToggle}
             />
           </Route>
         </Switch>

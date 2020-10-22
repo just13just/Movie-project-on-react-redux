@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { addToFavorites, removeFromFavorites } from './FavoritesPage';
 
 
 const ModalPage = (props) => {
 
-    const [toggle, setToggle] = useState(false)
+    const { toggle, setToggle } = props;
 
     return (
         <div

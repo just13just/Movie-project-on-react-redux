@@ -5,7 +5,7 @@ import ModalPage from './ModalPage';
 
 const MainPage = (props) => {
 
-    const { films, setFilms, modalFilmNum, setModalFilmNum } = props;
+    const { films, setFilms, modalFilmNum, setModalFilmNum, toggle, setToggle } = props;
     const modalArr = films;
     const [pageNum, setPageNum] = useState(null);
     const [totalCount, setTotalCount] = useState(1)
@@ -67,6 +67,8 @@ const MainPage = (props) => {
                 modalFilmNum={modalFilmNum}
                 setModalFilmNum={setModalFilmNum}
                 modalArr={modalArr}
+                toggle={toggle}
+                setToggle={setToggle}
             />
         )
     }
