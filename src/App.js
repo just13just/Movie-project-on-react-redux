@@ -14,7 +14,6 @@ import Menu from './elements/Menu';
 function App() {
 
   const [modalFilmNum, setModalFilmNum] = useState(null);
-  console.log(`is modal: ${modalFilmNum}`)
 
   return (
     <div className="App">
@@ -22,7 +21,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <div className={modalFilmNum !== null ? `main-menu` : ``}>
-              <Menu />
+              <Menu
+                setModalFilmNum={setModalFilmNum}
+              />
             </div>
             <MainPageContainer
               modalFilmNum={modalFilmNum}
@@ -31,7 +32,9 @@ function App() {
           </Route>
           <Route exact path='/favorites'>
             <div className={modalFilmNum !== null ? `main-menu` : ``}>
-              <Menu />
+              <Menu
+                setModalFilmNum={setModalFilmNum}
+              />
             </div>
             <FavoritesPage
               modalFilmNum={modalFilmNum}

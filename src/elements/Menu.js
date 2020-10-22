@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Menu = () => {
+const Menu = (props) => {
+
+    const { setModalFilmNum } = props;
+
     return (
         <div className='menu'>
             <div className='left-side-menu'>
@@ -20,8 +23,8 @@ const Menu = () => {
                         <span className='dropDownButton'> My Account </span>
                     </button>
                     <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <Link className="dropdown-item item-dropdown" to="/">Main page</Link>
-                        <Link className="dropdown-item item-dropdown" to="/favorites">Favorites</Link>
+                        <Link className="dropdown-item item-dropdown" to="/" onClick={() => { setModalFilmNum(null) }}>Main page</Link>
+                        <Link className="dropdown-item item-dropdown" to="/favorites" onClick={() => { setModalFilmNum(null) }}>Favorites</Link>
                     </div>
                 </div>
             </div>
