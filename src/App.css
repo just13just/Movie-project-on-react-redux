@@ -47,6 +47,7 @@
   padding: 1em;
 }
 .poster-wrap {
+  cursor: pointer;
   -webkit-box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 1);
@@ -124,6 +125,7 @@
 }
 .favorites-img-container {
   margin: 1em;
+  cursor: pointer;
 }
 .favorites-img-container img {
   max-width: 100%;
@@ -174,6 +176,9 @@
   justify-content: space-between;
   font-size: 30px;
   color: rgb(110, 117, 124);
+}
+.modal-btn {
+  cursor: pointer;
 }
 .modal-btn:hover {
   color: white;
