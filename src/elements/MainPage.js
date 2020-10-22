@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination'
 import ModalPage from './ModalPage';
+import notFoundImg from '../img/not-found.png'
 
 
 const MainPage = (props) => {
@@ -25,7 +26,7 @@ const MainPage = (props) => {
         .map((film, index) => {
             return <div key={film.id} onClick={() => { setModalFilmNum(index) }} className='poster-wrap'>
                 <div className='img-wrap'>
-                    <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} alt='img...' className='' />
+                    <img src={`http://image.tmdb.org/t/p/w342/${film.poster_path}`} alt={film.original_title} />
                     <div className='poster-text'><div><strong>{film.original_title}</strong></div></div>
                 </div>
             </div>
