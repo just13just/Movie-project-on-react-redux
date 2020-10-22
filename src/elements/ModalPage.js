@@ -4,13 +4,19 @@ import { addToFavorites, removeFromFavorites } from './FavoritesPage';
 
 const ModalPage = (props) => {
 
-    const { toggle, setToggle } = props;
+    const {
+        toggle,
+        setToggle,
+        modalFilmNum,
+        setModalFilmNum,
+        modalArr
+    } = props;
 
     return (
         <div
             className='modal-page-background'
             style={{
-                backgroundImage: `url(http://image.tmdb.org/t/p/original/${props.modalArr[props.modalFilmNum].poster_path})`,
+                backgroundImage: `url(http://image.tmdb.org/t/p/original/${modalArr[modalFilmNum].poster_path})`,
                 width: '100%',
                 backgroundSize: "cover",
                 backgroundPosition: 'center',
@@ -19,7 +25,7 @@ const ModalPage = (props) => {
         >
             <div className='modal-page-container'>
                 <div className='modal-page-btn-row'>
-                    <div className='modal-btn' onClick={() => props.setModalFilmNum(null)}>
+                    <div className='modal-btn' onClick={() => setModalFilmNum(null)}>
                         <div className='modal-btn-lg'>
                             <strong className='modal-page-svg'>
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -38,8 +44,8 @@ const ModalPage = (props) => {
                             Back
                         </div>
                     </div>
-                    {props.modalFilmNum < props.modalArr.length - 1 ?
-                        <div className='modal-btn' onClick={() => props.setModalFilmNum(props.modalFilmNum + 1)}>
+                    {modalFilmNum < modalArr.length - 1 ?
+                        <div className='modal-btn' onClick={() => setModalFilmNum(modalFilmNum + 1)}>
                             <div className='modal-btn-lg'>
                                 Next movie
                                 <strong className='modal-page-svg'>
@@ -60,11 +66,11 @@ const ModalPage = (props) => {
                         </div> : null}
                 </div>
                 <div className='modal-page-content-container'>
-                    <img src={`http://image.tmdb.org/t/p/w342/${props.modalArr[props.modalFilmNum].poster_path}`} alt='img...' className='' />
+                    <img src={`http://image.tmdb.org/t/p/w342/${modalArr[modalFilmNum].poster_path}`} alt='img...' className='' />
                     <div className='modal-page-content-text'>
                         {localStorage.getItem('favoritesFilmsArr') && JSON.parse(localStorage.getItem('favoritesFilmsArr'))
-                            .find(film => film.id === props.modalArr[props.modalFilmNum].id) ?
-                            <button className='btn btn-outline-secondary' type='button' onClick={() => { removeFromFavorites(props.modalArr[props.modalFilmNum].id); setToggle(!toggle) }}>
+                            .find(film => film.id === modalArr[modalFilmNum].id) ?
+                            <button className='btn btn-outline-secondary' type='button' onClick={() => { removeFromFavorites(modalArr[modalFilmNum].id); setToggle(!toggle) }}>
                                 <span className='modal-page-favorite-btn-lg'>Unfavorite</span>
                                 <span className='modal-page-favorite-btn-sm'>
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +78,7 @@ const ModalPage = (props) => {
                                     </svg>
                                 </span>
                             </button> :
-                            <button className='btn btn-outline-secondary' type='button' onClick={() => { addToFavorites(props.modalArr[props.modalFilmNum]); setToggle(!toggle) }}>
+                            <button className='btn btn-outline-secondary' type='button' onClick={() => { addToFavorites(modalArr[modalFilmNum]); setToggle(!toggle) }}>
                                 <span className='modal-page-favorite-btn-lg'>Add to favorite</span>
                                 <span className='modal-page-favorite-btn-sm'>
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -81,32 +87,32 @@ const ModalPage = (props) => {
                                 </span>
                             </button>}
                         <div className='modal-page-title-lg'>
-                            <h2>{`${props.modalArr[props.modalFilmNum].original_title} (${parseInt(props.modalArr[props.modalFilmNum].release_date)})`}</h2>
+                            <h2>{`${modalArr[modalFilmNum].original_title} (${parseInt(modalArr[modalFilmNum].release_date)})`}</h2>
                         </div>
                         <div className='modal-page-content-text-first-row'>
                             <div className='modal-page-score-rating'>
-                                Score: <br /><strong>{props.modalArr[props.modalFilmNum].vote_average}</strong>
+                                Score: <br /><strong>{modalArr[modalFilmNum].vote_average}</strong>
                             </div>
                             <div className='modal-page-score-rating'>
-                                Rating: <br /><strong>{props.modalArr[props.modalFilmNum].adult ? 'R' : 'Pg'}</strong>
+                                Rating: <br /><strong>{modalArr[modalFilmNum].adult ? 'R' : 'Pg'}</strong>
                             </div>
                             <div>
-                                Release Date: <br /><strong>{props.modalArr[props.modalFilmNum].release_date}</strong>
+                                Release Date: <br /><strong>{modalArr[modalFilmNum].release_date}</strong>
                             </div>
                         </div>
                         <div className='modal-page-text-lg'>
                             <hr />
-                            <p>{props.modalArr[props.modalFilmNum].overview}</p>
+                            <p>{modalArr[modalFilmNum].overview}</p>
                             <hr />
                         </div>
                     </div>
                     <div className='modal-page-grid-box-sm'>
                         <div>
-                            <h2>{`${props.modalArr[props.modalFilmNum].original_title} (${parseInt(props.modalArr[props.modalFilmNum].release_date)})`}</h2>
+                            <h2>{`${modalArr[modalFilmNum].original_title} (${parseInt(modalArr[modalFilmNum].release_date)})`}</h2>
                         </div>
                         <hr />
                         <div className='modal-page-sm-overview'>
-                            <p>{props.modalArr[props.modalFilmNum].overview}</p>
+                            <p>{modalArr[modalFilmNum].overview}</p>
                         </div>
                         <hr />
                     </div>
