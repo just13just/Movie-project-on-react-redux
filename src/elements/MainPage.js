@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-js-pagination'
 import ModalPage from './ModalPage';
-import notFoundImg from '../img/not-found.png'
 
 
 const MainPage = (props) => {
