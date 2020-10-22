@@ -28,7 +28,7 @@ const FavoritesPage = (props) => {
         })
 
 
-    if (modalFilmNum === null) {
+    if (modalFilmNum === null || favoritesFilms.length === 0) {
         return (
             <div className='favorites-page-wrap'>
                 <div className='favorite-page'>
