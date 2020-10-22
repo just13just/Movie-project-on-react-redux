@@ -14,6 +14,7 @@ import Menu from './elements/Menu';
 function App() {
 
   const [modalFilmNum, setModalFilmNum] = useState(null);
+  console.log(`is modal: ${modalFilmNum}`)
 
   return (
     <div className="App">

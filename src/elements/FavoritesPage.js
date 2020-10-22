@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ModalPage from './ModalPage';
 
 const FavoritesPage = (props) => {
@@ -10,6 +10,13 @@ const FavoritesPage = (props) => {
         favoritesFilms = [];
 
     const [toggle, setToggle] = useState(false)
+
+    useEffect(() => {
+        return (() => {
+            setModalFilmNum(null);
+            console.log('favorites was closed')
+        })
+    }, [setModalFilmNum])
 
     const filmsList = favoritesFilms
         .map((film, index) => {
@@ -31,6 +38,7 @@ const FavoritesPage = (props) => {
 
 
     if (modalFilmNum !== null) {
+        console.log(modalFilmNum)
         return (
             <ModalPage
                 modalFilmNum={modalFilmNum}

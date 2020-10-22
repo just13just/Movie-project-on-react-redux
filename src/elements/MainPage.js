@@ -21,6 +21,13 @@ const MainPage = (props) => {
             .catch(err => console.error(err))
     }, [pageNum, setFilms])
 
+    useEffect(() => {
+        return (() => {
+            setModalFilmNum(null);
+            console.log('main page was closed')
+        })    
+    }, [setModalFilmNum])
+
     const postersList = films
         .map((film, index) => {
             return <div key={film.id} onClick={() => { setModalFilmNum(index) }} className='poster-wrap'>
