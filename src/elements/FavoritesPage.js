@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './Menu';
 import ModalPage from './ModalPage';
 
 const FavoritesPage = (props) => {
@@ -30,25 +31,39 @@ const FavoritesPage = (props) => {
 
     if (modalFilmNum === null || favoritesFilms.length === 0) {
         return (
-            <div className='favorites-page-wrap'>
-                <div className='favorite-page'>
-                    <div className='favorite-head'>
-                        <h3>My favorite {favoritesFilms.length === 0 ? <span>list is empty</span> : null}</h3>
-                    </div>
-                    {filmsList}
+            <>
+                <div className={modalFilmNum !== null ? `main-menu` : ``}>
+                    <Menu
+                        setModalFilmNum={setModalFilmNum}
+                    />
                 </div>
-            </div>
+                <div className='favorites-page-wrap'>
+                    <div className='favorite-page'>
+                        <div className='favorite-head'>
+                            <h3>My favorite {favoritesFilms.length === 0 ? <span>list is empty</span> : null}</h3>
+                        </div>
+                        {filmsList}
+                    </div>
+                </div>
+            </>
         )
     }
     else {
         return (
-            <ModalPage
-                modalFilmNum={modalFilmNum}
-                setModalFilmNum={setModalFilmNum}
-                modalArr={favoritesFilms}
-                toggle={toggle}
-                setToggle={setToggle}
-            />
+            <>
+                <div className={modalFilmNum !== null ? `main-menu` : ``}>
+                    <Menu
+                        setModalFilmNum={setModalFilmNum}
+                    />
+                </div>
+                <ModalPage
+                    modalFilmNum={modalFilmNum}
+                    setModalFilmNum={setModalFilmNum}
+                    modalArr={favoritesFilms}
+                    toggle={toggle}
+                    setToggle={setToggle}
+                />
+            </>
         )
     }
 }

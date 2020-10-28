@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { setFilmsAC } from '../redux/filmsReducer';
+import { setFilmsAC, setModalFilmNumAC } from '../redux/filmsReducer';
 import MainPage from './MainPage';
 
 const MainPageContainer = (props) => {
@@ -32,18 +32,21 @@ const MainPageContainer = (props) => {
             setPageNum={setPageNum}
         />
     )
-
 }
 
 const mapStateToProps = (state) => {
     return {
-        films: state.mainData.films
+        films: state.mainData.films,
+        modalFilmNum: state.mainData.modalFilmNum
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         setFilms: (films) => {
             dispatch(setFilmsAC(films))
+        },
+        setModalFilmNum: (films) => {
+            dispatch(setModalFilmNumAC(films))
         }
     }
 }

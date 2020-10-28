@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from 'react-js-pagination'
+import Menu from './Menu';
 import ModalPage from './ModalPage';
 
 
@@ -26,43 +27,57 @@ const MainPage = (props) => {
 
     if (modalFilmNum === null) {
         return (
-            <div className='main-page-wrap'>
-                <div className='main-page'>
-                    <div className='main-head'>
-                        <h3>Latest releases</h3>
-                    </div>
-                    <div className='main-content'>
-                        {postersList}
-                    </div>
-                    <div className='main-footer'>
-                        <Pagination
-                            activePage={pageNum}
-                            itemsCountPerPage={20}
-                            totalItemsCount={totalCount}
-                            pageRangeDisplayed={3}
-                            onChange={setPageNum}
-                            prevPageText={'Prev'}
-                            nextPageText={'Next'}
-                            firstPageText={'First'}
-                            lastPageText={'Last'}
-                            hideDisabled={true}
-                            itemClass="page-item"
-                            linkClass="page-link"
-                        />
+            <>
+                <div className={modalFilmNum !== null ? `main-menu` : ``}>
+                    <Menu
+                        setModalFilmNum={setModalFilmNum}
+                    />
+                </div>
+                <div className='main-page-wrap'>
+                    <div className='main-page'>
+                        <div className='main-head'>
+                            <h3>Latest releases</h3>
+                        </div>
+                        <div className='main-content'>
+                            {postersList}
+                        </div>
+                        <div className='main-footer'>
+                            <Pagination
+                                activePage={pageNum}
+                                itemsCountPerPage={20}
+                                totalItemsCount={totalCount}
+                                pageRangeDisplayed={3}
+                                onChange={setPageNum}
+                                prevPageText={'Prev'}
+                                nextPageText={'Next'}
+                                firstPageText={'First'}
+                                lastPageText={'Last'}
+                                hideDisabled={true}
+                                itemClass="page-item"
+                                linkClass="page-link"
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
         )
     }
     else {
         return (
-            <ModalPage
-                modalFilmNum={modalFilmNum}
-                setModalFilmNum={setModalFilmNum}
-                modalArr={films}
-                toggle={toggle}
-                setToggle={setToggle}
-            />
+            <>
+                <div className={modalFilmNum !== null ? `main-menu` : ``}>
+                    <Menu
+                        setModalFilmNum={setModalFilmNum}
+                    />
+                </div>
+                <ModalPage
+                    modalFilmNum={modalFilmNum}
+                    setModalFilmNum={setModalFilmNum}
+                    modalArr={films}
+                    toggle={toggle}
+                    setToggle={setToggle}
+                />
+            </>
         )
     }
 }

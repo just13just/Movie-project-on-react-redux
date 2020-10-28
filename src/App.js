@@ -8,12 +8,11 @@ import {
   Switch
 } from 'react-router-dom';
 import MainPageContainer from './elements/MainPageContainer';
-import FavoritesPage from './elements/FavoritesPage';
-import Menu from './elements/Menu';
+import FavoritesPageContainer from './elements/FavoritesPageContainer';
+
 
 function App() {
 
-  const [modalFilmNum, setModalFilmNum] = useState(null);
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -21,27 +20,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/'>
-            <div className={modalFilmNum !== null ? `main-menu` : ``}>
-              <Menu
-                setModalFilmNum={setModalFilmNum}
-              />
-            </div>
             <MainPageContainer
-              modalFilmNum={modalFilmNum}
-              setModalFilmNum={setModalFilmNum}
               toggle={toggle}
               setToggle={setToggle}
             />
           </Route>
           <Route exact path='/favorites'>
-            <div className={modalFilmNum !== null ? `main-menu` : ``}>
-              <Menu
-                setModalFilmNum={setModalFilmNum}
-              />
-            </div>
-            <FavoritesPage
-              modalFilmNum={modalFilmNum}
-              setModalFilmNum={setModalFilmNum}
+            <FavoritesPageContainer
               toggle={toggle}
               setToggle={setToggle}
             />
