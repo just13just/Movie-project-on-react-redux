@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Pagination from 'react-js-pagination'
 import ModalPage from './ModalPage';
 
 
 const MainPage = (props) => {
 
-    const { films, setFilms, modalFilmNum, setModalFilmNum, toggle, setToggle } = props;
-    const modalArr = films;
-    const [pageNum, setPageNum] = useState(null);
-    const [totalCount, setTotalCount] = useState(1)
-
-    useEffect(() => {
-        fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${pageNum}`)
-            .then(res => res.json())
-            .then(res => {
-                setFilms(res.results)
-                setPageNum(res.page)
-                setTotalCount(res.total_results)
-            })
-            .catch(err => console.error(err))
-    }, [pageNum, setFilms])
+    const { films,
+        modalFilmNum,
+        setModalFilmNum,
+        toggle,
+        setToggle,
+        pageNum,
+        setPageNum,
+        totalCount } = props;
 
     const postersList = films
         .map((film, index) => {
@@ -66,7 +59,7 @@ const MainPage = (props) => {
             <ModalPage
                 modalFilmNum={modalFilmNum}
                 setModalFilmNum={setModalFilmNum}
-                modalArr={modalArr}
+                modalArr={films}
                 toggle={toggle}
                 setToggle={setToggle}
             />
