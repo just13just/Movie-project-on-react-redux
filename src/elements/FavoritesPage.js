@@ -4,11 +4,11 @@ import ModalPage from './ModalPage';
 
 const FavoritesPage = (props) => {
 
-    const { modalFilmNum, setModalFilmNum, toggle, setToggle } = props;
-    let favoritesFilms = [];
-    localStorage.getItem('favoritesFilmsArr') ?
-        favoritesFilms = JSON.parse(localStorage.getItem('favoritesFilmsArr')) :
-        favoritesFilms = [];
+    const { modalFilmNum,
+        setModalFilmNum,
+        favoritesFilms,
+        addToFavorites,
+        removeFromFavorites } = props;
 
     const filmsList = favoritesFilms
         .map((film, index) => {
@@ -19,7 +19,7 @@ const FavoritesPage = (props) => {
                 <div className='favorites-content-container'>
                     <div className='favorites-text-container'>
                         <h6><strong>{film.original_title}</strong></h6>
-                        <button type="button" className="btn btn-outline-secondary btn-favorite-unfavorite" onClick={() => { removeFromFavorites(film.id); setToggle(!toggle) }}><strong>Unfavorite</strong></button>
+                        <button type="button" className="btn btn-outline-secondary btn-favorite-unfavorite" onClick={() => { removeFromFavorites(film.id) }}><strong>Unfavorite</strong></button>
                     </div>
                     <div className='favorites-overview-wrap'>
                         <div className='favorites-overview'>{film.overview}</div>
@@ -60,27 +60,13 @@ const FavoritesPage = (props) => {
                     modalFilmNum={modalFilmNum}
                     setModalFilmNum={setModalFilmNum}
                     modalArr={favoritesFilms}
-                    toggle={toggle}
-                    setToggle={setToggle}
+                    favoritesFilms={favoritesFilms}
+                    addToFavorites={addToFavorites}
+                    removeFromFavorites={removeFromFavorites}
                 />
             </>
         )
     }
-}
-
-export const addToFavorites = (film) => {
-    if (localStorage.getItem('favoritesFilmsArr')) {
-        let arr = JSON.parse(localStorage.getItem('favoritesFilmsArr'))
-        arr.push(film)
-        localStorage.setItem('favoritesFilmsArr', JSON.stringify(arr))
-    } else {
-        localStorage.setItem('favoritesFilmsArr', JSON.stringify([film]))
-    }
-}
-export const removeFromFavorites = (filmId) => {
-    let arr = JSON.parse(localStorage.getItem('favoritesFilmsArr'))
-    let newArr = arr.filter(f => f.id !== filmId)
-    localStorage.setItem('favoritesFilmsArr', JSON.stringify(newArr))
 }
 
 export default FavoritesPage;

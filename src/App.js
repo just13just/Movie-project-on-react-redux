@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
@@ -13,23 +13,15 @@ import FavoritesPageContainer from './elements/FavoritesPageContainer';
 
 function App() {
 
-  const [toggle, setToggle] = useState(false);
-
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path='/'>
-            <MainPageContainer
-              toggle={toggle}
-              setToggle={setToggle}
-            />
+            <MainPageContainer />
           </Route>
           <Route exact path='/favorites'>
-            <FavoritesPageContainer
-              toggle={toggle}
-              setToggle={setToggle}
-            />
+            <FavoritesPageContainer />
           </Route>
         </Switch>
       </Router>

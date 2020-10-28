@@ -9,11 +9,12 @@ const MainPage = (props) => {
     const { films,
         modalFilmNum,
         setModalFilmNum,
-        toggle,
-        setToggle,
         pageNum,
         setPageNum,
-        totalCount } = props;
+        totalCount,
+        favoritesFilms,
+        addToFavorites,
+        removeFromFavorites } = props;
 
     const postersList = films
         .map((film, index) => {
@@ -74,8 +75,9 @@ const MainPage = (props) => {
                     modalFilmNum={modalFilmNum}
                     setModalFilmNum={setModalFilmNum}
                     modalArr={films}
-                    toggle={toggle}
-                    setToggle={setToggle}
+                    favoritesFilms={favoritesFilms}
+                    addToFavorites={addToFavorites}
+                    removeFromFavorites={removeFromFavorites}
                 />
             </>
         )

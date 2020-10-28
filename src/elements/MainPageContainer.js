@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
+    setFavoritesFilmsAC,
     setFilmsAC,
     setModalFilmNumAC,
     setPageNumAC,
@@ -15,12 +16,12 @@ const MainPageContainer = (props) => {
         setFilms,
         modalFilmNum,
         setModalFilmNum,
-        toggle,
-        setToggle,
         totalCount,
         setTotalCount,
         pageNum,
-        setPageNum
+        setPageNum,
+        favoritesFilms,
+        setFavoritesFilms
     } = props;
 
     useEffect(() => {
@@ -34,16 +35,32 @@ const MainPageContainer = (props) => {
             .catch(err => console.error(err))
     }, [pageNum, setFilms, setTotalCount, setPageNum])
 
+    const addToFavorites = (film) => {
+        setFavoritesFilms(favoritesFilms.concat(film))
+    }
+    const removeFromFavorites = (filmId) => {
+        let temporary = favoritesFilms.filter(f => f.id !== filmId)
+        setFavoritesFilms(temporary)
+    }
+
+    useEffect(() => {
+        setFavoritesFilms(JSON.parse(localStorage.getItem('favoritesFilmsArr')))
+    }, [setFavoritesFilms])
+    useEffect(() => {
+        localStorage.setItem('favoritesFilmsArr', JSON.stringify(favoritesFilms))
+    }, [favoritesFilms])
+
     return (
         <MainPage
             films={films}
             modalFilmNum={modalFilmNum}
             setModalFilmNum={setModalFilmNum}
-            toggle={toggle}
-            setToggle={setToggle}
             totalCount={totalCount}
             pageNum={pageNum}
             setPageNum={setPageNum}
+            favoritesFilms={favoritesFilms}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
         />
     )
 }
@@ -53,7 +70,8 @@ const mapStateToProps = (state) => {
         films: state.mainData.films,
         totalCount: state.mainData.totalCount,
         pageNum: state.mainData.pageNum,
-        modalFilmNum: state.mainData.modalFilmNum
+        modalFilmNum: state.mainData.modalFilmNum,
+        favoritesFilms: state.mainData.favoritesFilms
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -69,6 +87,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setModalFilmNum: (films) => {
             dispatch(setModalFilmNumAC(films))
+        },
+        setFavoritesFilms: (films) => {
+            dispatch(setFavoritesFilmsAC(films))
         }
     }
 }

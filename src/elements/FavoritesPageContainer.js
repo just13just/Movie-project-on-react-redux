@@ -1,32 +1,56 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setModalFilmNumAC } from '../redux/filmsReducer';
+import { setFavoritesFilmsAC, setModalFilmNumAC } from '../redux/filmsReducer';
 import FavoritesPage from './FavoritesPage';
 
 
 const FavoritesPageContainer = (props) => {
 
-    const { modalFilmNum, setModalFilmNum, toggle, setToggle } = props;
+    const { modalFilmNum,
+        setModalFilmNum,
+        favoritesFilms,
+        setFavoritesFilms } = props;
+
+
+    const addToFavorites = (film) => {
+        setFavoritesFilms(favoritesFilms.concat(film))
+    }
+    const removeFromFavorites = (filmId) => {
+        let temporary = favoritesFilms.filter(f => f.id !== filmId)
+        setFavoritesFilms(temporary)
+    }
+
+    useEffect(() => {
+        setFavoritesFilms(JSON.parse(localStorage.getItem('favoritesFilmsArr')))
+    }, [setFavoritesFilms])
+    useEffect(() => {
+        localStorage.setItem('favoritesFilmsArr', JSON.stringify(favoritesFilms))
+    }, [favoritesFilms])
 
     return (
         <FavoritesPage
             modalFilmNum={modalFilmNum}
             setModalFilmNum={setModalFilmNum}
-            toggle={toggle}
-            setToggle={setToggle}
+            favoritesFilms={favoritesFilms}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
         />
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        modalFilmNum: state.mainData.modalFilmNum
+        modalFilmNum: state.mainData.modalFilmNum,
+        favoritesFilms: state.mainData.favoritesFilms
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         setModalFilmNum: (films) => {
             dispatch(setModalFilmNumAC(films))
+        },
+        setFavoritesFilms: (films) => {
+            dispatch(setFavoritesFilmsAC(films))
         }
     }
 }
