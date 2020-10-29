@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
-    setFavoritesFilmsAC,
-    setFilmsAC,
-    setModalFilmNumAC,
-    setPageNumAC,
-    setTotalCountAC
+    setFavoritesFilms,
+    setFilms,
+    setModalFilmNum,
+    setPageNum,
+    setTotalCount
 } from '../redux/filmsReducer';
 import MainPage from './MainPage';
 
@@ -77,24 +77,11 @@ const mapStateToProps = (state) => {
         favoritesFilms: state.mainData.favoritesFilms
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setFilms: (films) => {
-            dispatch(setFilmsAC(films))
-        },
-        setTotalCount: (count) => {
-            dispatch(setTotalCountAC(count))
-        },
-        setPageNum: (num) => {
-            dispatch(setPageNumAC(num))
-        },
-        setModalFilmNum: (films) => {
-            dispatch(setModalFilmNumAC(films))
-        },
-        setFavoritesFilms: (films) => {
-            dispatch(setFavoritesFilmsAC(films))
-        }
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPageContainer)
+export default connect(mapStateToProps, {
+    setFilms,
+    setTotalCount,
+    setPageNum,
+    setModalFilmNum,
+    setFavoritesFilms
+})(MainPageContainer)

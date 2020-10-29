@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setFavoritesFilmsAC, setModalFilmNumAC } from '../redux/filmsReducer';
+import { setFavoritesFilms, setModalFilmNum } from '../redux/filmsReducer';
 import FavoritesPage from './FavoritesPage';
 
 
@@ -55,15 +55,8 @@ const mapStateToProps = (state) => {
         favoritesFilms: state.mainData.favoritesFilms
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setModalFilmNum: (films) => {
-            dispatch(setModalFilmNumAC(films))
-        },
-        setFavoritesFilms: (films) => {
-            dispatch(setFavoritesFilmsAC(films))
-        }
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoritesPageContainer)
+export default connect(mapStateToProps, {
+    setModalFilmNum,
+    setFavoritesFilms
+})(FavoritesPageContainer)

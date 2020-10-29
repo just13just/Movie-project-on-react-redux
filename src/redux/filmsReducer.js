@@ -35,19 +35,19 @@ const filmsReducer = (state = initialState, action) => {
     }
 }
 
-export const setFilmsAC = (films) => {
+export const setFilms = (films) => {
     return { type: SET_FILMS, films }
 }
-export const setTotalCountAC = (count) => {
+export const setTotalCount = (count) => {
     return { type: SET_TOTAL_COUNT, count }
 }
-export const setPageNumAC = (num) => {
+export const setPageNum = (num) => {
     return { type: SET_PAGE_NUM, num }
 }
-export const setModalFilmNumAC = (num) => {
+export const setModalFilmNum = (num) => {
     return { type: SET_MODAL_FILM_NUM, num }
 }
-export const setFavoritesFilmsAC = (filmsArr) => {
+export const setFavoritesFilms = (filmsArr) => {
     return { type: SET_FAVORITES_FILMS, filmsArr }
 }
 
