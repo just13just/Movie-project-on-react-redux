@@ -21,11 +21,9 @@ const FavoritesPageContainer = (props) => {
         (() => {
             if (modalFilmNum === 0) {
                 setModalFilmNum(0)
-                console.log('to zero')
             }
             else {
                 setModalFilmNum(modalFilmNum - 1)
-                console.log('back')
             }
         })()
     }
