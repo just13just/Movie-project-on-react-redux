@@ -30,7 +30,7 @@ const MainPageContainer = (props) => {
             .then(res => {
                 setFilms(res.results)
                 setPageNum(res.page)
-                setTotalCount(res.total_results)
+                setTotalCount(res.total_results - 1)
             })
             .catch(err => console.error(err))
     }, [pageNum, setFilms, setTotalCount, setPageNum])
