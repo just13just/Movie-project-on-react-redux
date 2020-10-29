@@ -21,8 +21,11 @@ const FavoritesPageContainer = (props) => {
     }
 
     useEffect(() => {
-        setFavoritesFilms(JSON.parse(localStorage.getItem('favoritesFilmsArr')))
+        if (localStorage.getItem('favoritesFilmsArr')) {
+            setFavoritesFilms(JSON.parse(localStorage.getItem('favoritesFilmsArr')))
+        }
     }, [setFavoritesFilms])
+
     useEffect(() => {
         localStorage.setItem('favoritesFilmsArr', JSON.stringify(favoritesFilms))
     }, [favoritesFilms])
