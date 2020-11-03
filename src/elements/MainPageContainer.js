@@ -70,11 +70,11 @@ const MainPageContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        films: state.mainData.films,
-        totalCount: state.mainData.totalCount,
-        pageNum: state.mainData.pageNum,
-        modalFilmNum: state.mainData.modalFilmNum,
-        favoritesFilms: state.mainData.favoritesFilms
+        films: state.films,
+        totalCount: state.totalCount,
+        pageNum: state.pageNum,
+        modalFilmNum: state.modalFilmNum,
+        favoritesFilms: state.favoritesFilms
     }
 }
 

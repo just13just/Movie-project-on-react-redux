@@ -1,11 +1,7 @@
-import { combineReducers, createStore } from 'redux';
+import { createStore } from 'redux';
 import filmsReducer from './filmsReducer';
 
 
-const reducers = combineReducers({
-    mainData: filmsReducer
-})
-
-const store = createStore(reducers)
+const store = createStore(filmsReducer)
 
 export default store;

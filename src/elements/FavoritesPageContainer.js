@@ -51,8 +51,8 @@ const FavoritesPageContainer = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        modalFilmNum: state.mainData.modalFilmNum,
-        favoritesFilms: state.mainData.favoritesFilms
+        modalFilmNum: state.modalFilmNum,
+        favoritesFilms: state.favoritesFilms
     }
 }
 
