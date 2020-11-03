@@ -18,14 +18,16 @@ const FavoritesPageContainer = (props) => {
     const removeFromFavorites = (filmId) => {
         let temporary = favoritesFilms.filter(f => f.id !== filmId)
         setFavoritesFilms(temporary);
-        (() => {
-            if (modalFilmNum === 0) {
-                setModalFilmNum(0)
-            }
-            else {
-                setModalFilmNum(modalFilmNum - 1)
-            }
-        })()
+        if (modalFilmNum) {
+            (() => {
+                if (modalFilmNum === 0) {
+                    setModalFilmNum(0)
+                }
+                else {
+                    setModalFilmNum(modalFilmNum - 1)
+                }
+            })()
+        }
     }
 
     useEffect(() => {
