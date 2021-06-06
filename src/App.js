@@ -23,7 +23,7 @@ function App() {
           <Route exact path='/favorites'>
             <FavoritesPageContainer />
           </Route>
-        </Switch>
+        </Switch>  
       </Router>
     </div>
   );
